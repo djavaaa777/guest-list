@@ -48,7 +48,7 @@ guest-list/
 npm install
 ```
 
-3. Create a MySQL database named `guestbook`  
+3. Create a MySQL database and configure the credentials in `db.js`
 4. Create the `guests` table using the following SQL:
 
 ```sql
@@ -64,19 +64,18 @@ CREATE TABLE guests (
 );
 ```
 
-5. Update DB credentials in `db.js` if needed  
-6. Start the app:
+5. Start the app:
 
 ```bash
 npm start
 ```
 
-7. Visit the app in your browser:  
+6. Visit the app in your browser:  
 👉 http://localhost:3000
 
 ## 🌐 Live Demo
 
-_(Will be added after deployment to Render.com)_
+🔗 [https://guest-list-pb15.onrender.com](https://guest-list-pb15.onrender.com)
 
 ## 📄 License
 
