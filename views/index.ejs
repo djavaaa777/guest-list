@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guest Book</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="/main.css" rel="stylesheet"/>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <% if (message === 'success') { %>
+    <div class="success-message" id="message">Guest added successfully</div>
+  <% } else if (message === 'error') { %>
+    <div class="error-message">An error occurred</div>
+  <% } else if (message === 'deleted') { %>
+    <div id="message" class="success-message">Guest successfully removed</div>
+  <% } else if (message === 'updated') { %>
+    <div id="message" class="success-message">Guest successfully edited</div>
+  <% } %>
+
+  <div class="wrapper1">
+    <h1>Guest Book</h1>
+    <form action="/checked" method="post" class="form">
+      <label for="full_name">Full Name:</label>
+      <input type="text" id="full_name" name="full_name" placeholder="John Doe" required/>
+
+      <label for="email">Email (optional):</label>
+      <input type="email" id="email" name="email" placeholder="john@example.com"/>
+
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" placeholder="Germany" required/>
+
+      <label for="check_in">Check-in:</label>
+      <input type="date" id="check_in" name="check_in" required/>
+
+      <label for="check_out">Check-out:</label>
+      <input type="date" id="check_out" name="check_out" required/>
+
+      <label for="room_type">Room Type:</label>
+      <select name="room_type" id="room_type" required>
+        <option value="suite">Suite</option>
+        <option value="deluxe">Deluxe Room</option>
+        <option value="standard">Standard Room</option>
+      </select>
+
+      <label for="room_number">Room Number:</label>
+      <input type="number" id="room_number" name="room_number" placeholder="60" required/>
+
+      <button type="submit">Add Guest</button>
+    </form>
+  </div>
+
+  <div class="wrapper2">
+    <h1>All Guests:</h1>
+    <table class="guest-table">
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Room Type</th>
+        <th>Room Number</th>
+      </tr>
+      <% guests.forEach((guest) => { %>
+        <tr>
+          <td><%= guest.full_name %></td>
+          <td><%= guest.email %></td>
+          <td><%= guest.country %></td>
+          <td><%= guest.check_in.toISOString().split('T')[0] %></td>
+          <td><%= guest.check_out.toISOString().split('T')[0] %></td>
+          <td><%= guest.room_type %></td>
+          <td><%= guest.room_number %></td>
+          <td class="icons">
+            <img src="/icons8-delete.svg" class="delete-icon" data-id="<%= guest.id %>">
+          </td>
+          <td>
+            <img src="/icons8-edit.svg" class="edit-icon" data-id="<%= guest.id %>">
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+</body>
+</html>

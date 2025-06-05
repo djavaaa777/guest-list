@@ -1,0 +1,19 @@
+{
+  "name": "guest-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "Javid",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0",
+    "pdfkit": "^0.17.0",
+    "pdfkit-table": "^0.1.99"
+  }
+}
