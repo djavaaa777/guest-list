@@ -73,9 +73,8 @@ npm start
 6. Visit the app in your browser:  
 👉 http://localhost:3000
 
-## 🌐 Live Demo
-
-🔗 [https://guest-list-pb15.onrender.com](https://guest-list-pb15.onrender.com)
+## ✨ Project Mockup
+![Mockup](docs/mockup.png)
 
 ## 📄 License
 
